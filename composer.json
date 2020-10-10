@@ -1,0 +1,28 @@
+{
+    "name": "makise-co/middleware",
+    "description": "PSR-15 Middleware Dispatcher",
+    "keywords": [
+        "psr-15",
+        "middleware",
+        "dispatcher"
+    ],
+    "require": {
+        "php": ">=7.4",
+        "psr/http-server-middleware": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MakiseCo\\Middleware\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MakiseCo\\Middleware\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.4",
+        "guzzlehttp/psr7": "^1.7",
+        "phpstan/phpstan": "^0.12.48"
+    }
+}
