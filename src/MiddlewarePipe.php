@@ -16,10 +16,12 @@ use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
 /**
+ * Linked list middleware dispatcher implementation
+ *
  * MiddlewarePipeline is a proxy object between real PSR request handler/middleware calls
  * It is used to "glue" different pipeline parts together (Double)
  */
-class MiddlewarePipeline implements RequestHandlerInterface
+class MiddlewarePipe implements RequestHandlerInterface
 {
     /**
      * Current pipeline part
@@ -31,13 +33,13 @@ class MiddlewarePipeline implements RequestHandlerInterface
     /**
      * Next pipeline part
      *
-     * @var RequestHandlerInterface|MiddlewarePipeline
+     * @var RequestHandlerInterface|MiddlewarePipe
      */
     protected RequestHandlerInterface $next;
 
     /**
      * @param RequestHandlerInterface|MiddlewareInterface $handler points to the current pipeline call
-     * @param RequestHandlerInterface|MiddlewarePipeline $next points to the next pipeline call
+     * @param RequestHandlerInterface|MiddlewarePipe $next points to the next pipeline call
      */
     public function __construct($handler, RequestHandlerInterface $next)
     {
@@ -51,6 +53,13 @@ class MiddlewarePipeline implements RequestHandlerInterface
         $this->next = $next;
     }
 
+    public function __clone()
+    {
+        // deep cloning
+        $this->handler = clone $this->handler;
+        $this->next = clone $this->next;
+    }
+
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         // call request handler
@@ -60,5 +69,26 @@ class MiddlewarePipeline implements RequestHandlerInterface
 
         // call middleware
         return $this->handler->process($request, $this->next);
+    }
+
+    /**
+     * @return MiddlewareInterface|RequestHandlerInterface
+     */
+    public function getHandler()
+    {
+        return $this->handler;
+    }
+
+    public function setNext(RequestHandlerInterface $next): void
+    {
+        $this->next = $next;
+    }
+
+    /**
+     * @return RequestHandlerInterface|MiddlewarePipe
+     */
+    public function getNext(): RequestHandlerInterface
+    {
+        return $this->next;
     }
 }
