@@ -32,10 +32,10 @@ This package provides a two high performance implementations of the PSR-15 reque
 ## Benchmarks
 10000 calls:
 ```
-Makise time took: 0.011933 secs (0.00000119 secs per request)
-Makise (flat) time took: 0.011875 secs (0.00000119 secs per request)
-Laminas time took: 0.035915 secs (0.00000359 secs per request)
-Relay time took: 0.022093 secs (0.00000221 secs per request)
+Makise time took: 0.011235 secs (0.00000112 secs per request)
+Makise (flat) time took: 0.011854 secs (0.00000119 secs per request)
+Laminas time took: 0.034769 secs (0.00000348 secs per request)
+Relay time took: 0.021777 secs (0.00000218 secs per request)
 ```
 
 1 million calls:
