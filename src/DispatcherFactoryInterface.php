@@ -16,7 +16,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 interface DispatcherFactoryInterface
 {
     /**
-     * @param MiddlewareInterface[]|RequestHandlerInterface[] $middlewares
+     * @param MiddlewareInterface[]|RequestHandlerInterface[]|string[] $middlewares
      *
      * @return Dispatcher
      */

@@ -16,7 +16,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 interface MiddlewarePipeFactoryInterface
 {
     /**
-     * @param MiddlewareInterface[]|RequestHandlerInterface[]|array<int, MiddlewareInterface|RequestHandlerInterface> $middlewares
+     * @param MiddlewareInterface[]|RequestHandlerInterface[]|string[] $middlewares
      *
      * @return MiddlewarePipe
      *

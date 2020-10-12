@@ -6,6 +6,7 @@
         "middleware",
         "dispatcher"
     ],
+    "license": "MIT",
     "require": {
         "php": ">=7.4",
         "psr/http-server-middleware": "^1.0",
