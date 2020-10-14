@@ -29,6 +29,9 @@ This package provides a two high performance implementations of the PSR-15 reque
 ## Requirements
 * PHP >= 7.4
 
+## Installation
+`composer require makise-co/middleware`
+
 ## Benchmarks
 10000 calls:
 ```
@@ -40,16 +43,20 @@ Relay time took: 0.021777 secs (0.00000218 secs per request)
 
 1 million calls:
 ```
-Makise time took: 1.169399 secs (0.00000117 secs per request)
-Makise (flat) time took: 1.231906 secs (0.00000123 secs per request)
-Laminas time took: 2.112726 secs (0.00000211 secs per request)
-Relay time took: 1.490263 secs (0.00000149 secs per request)
+Makise time took: 1.077460 secs (0.00000108 secs per request)
+Makise (flat) time took: 1.122735 secs (0.00000112 secs per request)
+Laminas time took: 2.027957 secs (0.00000203 secs per request)
+Relay time took: 1.482862 secs (0.00000148 secs per request)
 ```
 
 * Laminas version used: 3.2.2
 * Relay version used: 2.1.1
 
 Benchmark code can be found [here](benchmark/bench.php).
+
+* Benchmarks were performed on PHP 7.4 with OPcache enabled
+* CPU: Intel Core i7-9750H 6 cores (CPU frequency during benchmarks: 4.07 GHz)
+* OS: Ubuntu 20.04 (WSL 2)
 
 ## Usage
 
